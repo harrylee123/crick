@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>testing</title> <!--title for pages-->
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <!-- > <link rel='stylesheet' type='text/css' media='screen' href='main.css'>
+    <script src='main.js'></script> -->
+</head>
+<body>
+    
+    {%include 'navbar.html'%} <!-- the navbar is used in main so that it is always there-->
+
+    {% block content %} 
+    <!-- block tags allow any template such as projects.html to be inserted if the projects.html has block tags with code inside it will show here-->
+    {% endblock content %}
+    <p>footer</p>
+</body>
+</html>  
+ 

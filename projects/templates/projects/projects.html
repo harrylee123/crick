@@ -1,0 +1,39 @@
+{% extends 'main.html' %} <!-- this can now be used in main.html
+this will only work with the block tags-->
+
+
+{% block content %} <!-- because this block content is here and 
+we have the extends at the top, everything inside these blocks will extend to main.html-->
+
+<p>hello you are on the {{page}} page</p> <!-- if you go to the views page you can see that a dict of context was added with different attributes
+this is where it is used with page having the variable 'projects'-->
+
+
+{% if number > 10 %} <!-- number is a variable created in the views.py page because it is a parameter that was passed through the view into this template-->
+<p>number is greater than 10</p>
+
+{% elif number == 10 %}
+<p>number is exactly 10</p>
+
+{% else %}
+<p>number is less than than 10</p>
+
+{% endif %}
+
+
+<hr>
+
+
+<h1>projects</h1>
+
+
+<ul>
+    {% for project in projects %} <!--looping through projects which is defined in views with attributes-->
+    <li>Title:<a href="{% url 'project' project.id %}">{{project.title}}</a> --- {{project.description}}</li> <!-- for evey time we loop using the project. to decide how many times we loop, the .title is added after Title:-->
+    <!-- the href is a link on the page and i have set the url to be project and then whatever the project id is from the views.py page-->
+    <!-- the use of url project project.id is so that if the variable project ever changes, we will not have to change other variables because the name = project in the urls.py-->
+    {% endfor %}
+</ul>
+
+
+{% endblock content %}
